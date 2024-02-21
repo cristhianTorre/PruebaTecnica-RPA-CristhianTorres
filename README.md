@@ -38,3 +38,40 @@ Se hace las respectivas validaciones por cada numero que se encuentra en la list
         else:
             pass
     return result
+
+### Ejercicio 3
+Formato de entrada: [numero, numero, numero]
+
+Se recorre la lista y se valida si cada numero esta en una nueva lista para ser agregado en forma de lista o ser agregado a la lista de lista ya existente
+
+    def matrizRepetidos(lista):
+    matriz = []
+    for i in range(0, len(lista)):
+        validacion = inMatriz(lista[i], i, lista)
+        if(validacion == -1):
+            matriz.append([int(lista[i])])
+        else:
+            matriz[validacion].append(int(lista[i]))
+    return matriz
+
+### Ejercicio 4
+Formato de entrada: numero
+
+Los diferentes menus reciben un unico parametro para opciones, cuando se solicitan nombres se pueden usar los diferentes caracteres
+
+    def menu():
+    print("Sistema de inventario. Ingrese una opcion:")
+    print("------------------------------------------")
+    print("1. Agregar producto")
+    print("2. Ver reporte de inventario")
+    print("3. Salir")
+    option = input("Su opcion: ")
+    if(option == "1"):
+        addProduct()
+    elif(option == "2"):
+        viewInventory()
+    elif(option == "3"):
+        return 0
+    else:
+        print("Digite un comando valido")
+        menu()
